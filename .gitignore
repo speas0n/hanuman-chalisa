@@ -5,3 +5,9 @@ node_modules/
 .sites-runtime/
 *.zip
 *.tar.gz
+ios/build/
+ios/build-device/
+ios/TestResults/
+xcuserdata/
+*.xcuserstate
+.impeccable/review/

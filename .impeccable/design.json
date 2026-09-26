@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-26T06:09:25.579955+00:00",
+  "title": "Design System: Hanuman Chalisa for iPhone",
+  "extensions": {
+    "colorMeta": {
+      "accent-light": {
+        "role": "primary",
+        "displayName": "Warm rust",
+        "tonalRamp": [
+          "oklch(15% .12 40)",
+          "oklch(26% .12 40)",
+          "oklch(38% .12 40)",
+          "oklch(49% .12 40)",
+          "oklch(61% .12 40)",
+          "oklch(72% .12 40)",
+          "oklch(84% .12 40)",
+          "oklch(95% .12 40)"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Peach",
+        "tonalRamp": [
+          "oklch(15% .12 50)",
+          "oklch(26% .12 50)",
+          "oklch(38% .12 50)",
+          "oklch(49% .12 50)",
+          "oklch(61% .12 50)",
+          "oklch(72% .12 50)",
+          "oklch(84% .12 50)",
+          "oklch(95% .12 50)"
+        ]
+      },
+      "prominent-label-light": {
+        "role": "neutral",
+        "displayName": "Light-appearance prominent label",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(49% 0 0)",
+          "oklch(61% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(84% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "prominent-label-dark": {
+        "role": "neutral",
+        "displayName": "Dark-appearance prominent label",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(49% 0 0)",
+          "oklch(61% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(84% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Native navigation titles; Settings uses inline display."
+      },
+      "passage-title": {
+        "displayName": "Passage title",
+        "purpose": "SwiftUI title2.bold; scales with Dynamic Type."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "SwiftUI headline for prompts and library titles."
+      },
+      "supporting": {
+        "displayName": "Supporting copy",
+        "purpose": "SwiftUI subheadline; position count uses monospaced digits."
+      },
+      "prayer": {
+        "displayName": "Prayer text",
+        "purpose": "SwiftUI title2 with serif design; 6pt extra line spacing."
+      },
+      "prayer-word": {
+        "displayName": "Prayer words",
+        "purpose": "SwiftUI title3 with serif design for hints and recall."
+      },
+      "progress-count": {
+        "displayName": "Progress count",
+        "purpose": "SwiftUI largeTitle with rounded design and bold weight."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "SwiftUI caption for review labels."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "accessibility-dynamic-type",
+        "value": "SwiftUI dynamicTypeSize.isAccessibilitySize (semantic content-size condition, not CSS width)"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Prominent playback button",
+      "kind": "button",
+      "description": "Browser approximation only. Native source uses a large borderedProminent control; its exact shape and sizing remain system-owned.",
+      "html": "<div class=\"ds-demo\"><button class=\"ds-play\">Listen to passage</button></div>",
+      "css": ".ds-demo{color-scheme:light dark;color:CanvasText;font-family:system-ui;padding:16px;background:Canvas;--accent:rgb(62% 23% 12%);--on-accent:white}@media(prefers-color-scheme:dark){.ds-demo{--accent:rgb(100% 62% 40%);--on-accent:black}}.ds-demo button,.ds-demo input{font:inherit}.ds-demo button{cursor:pointer}.ds-demo button:hover{filter:brightness(.94)}.ds-demo button:active{filter:brightness(.88)}.ds-demo button:focus-visible,.ds-demo input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.ds-play{background:var(--accent);color:var(--on-accent);border:0;border-radius:8px;min-height:44pt;width:100%;padding:5pt 12pt}"
+    },
+    {
+      "name": "Hidden word",
+      "kind": "button",
+      "description": "Browser approximation only. Minimum 44pt target, serif text, and low-opacity accent fill.",
+      "html": "<div class=\"ds-demo\"><button class=\"ds-word\" aria-label=\"Hidden word 2, line 1\">•••</button></div>",
+      "css": ".ds-demo{color-scheme:light dark;color:CanvasText;font-family:system-ui;padding:16px;background:Canvas;--accent:rgb(62% 23% 12%);--on-accent:white}@media(prefers-color-scheme:dark){.ds-demo{--accent:rgb(100% 62% 40%);--on-accent:black}}.ds-demo button,.ds-demo input{font:inherit}.ds-demo button{cursor:pointer}.ds-demo button:hover{filter:brightness(.94)}.ds-demo button:active{filter:brightness(.88)}.ds-demo button:focus-visible,.ds-demo input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.ds-word{color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent);font-family:ui-serif,serif!important;border:0;border-radius:8pt;min-width:44pt;min-height:44pt;padding:0 10pt}",
+      "refersTo": "hidden-word"
+    },
+    {
+      "name": "Prayer surface",
+      "kind": "card",
+      "description": "Browser approximation only. System grouped surface and semantic serif text are represented with browser system colors and scalable type.",
+      "html": "<div class=\"ds-demo\"><article class=\"ds-prayer\"><span class=\"ds-label\">Line 1</span><p>Jai Hanuman gyaan gun saagar</p></article></div>",
+      "css": ".ds-demo{color-scheme:light dark;color:CanvasText;font-family:system-ui;padding:16px;background:Canvas;--accent:rgb(62% 23% 12%);--on-accent:white}@media(prefers-color-scheme:dark){.ds-demo{--accent:rgb(100% 62% 40%);--on-accent:black}}.ds-demo button,.ds-demo input{font:inherit}.ds-demo button{cursor:pointer}.ds-demo button:hover{filter:brightness(.94)}.ds-demo button:active{filter:brightness(.88)}.ds-demo button:focus-visible,.ds-demo input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.ds-prayer{background:Field;color:FieldText;border-radius:20pt;padding:10pt 20pt 22pt}.ds-label{color:GrayText}.ds-prayer p{font-family:ui-serif,serif;font-size:1.4em;line-height:1.5;margin:8pt 0 0}",
+      "refersTo": "prayer-surface"
+    },
+    {
+      "name": "System tab structure",
+      "kind": "nav",
+      "description": "Browser approximation only. Practice, Library, and Progress belong to native TabView; this preview represents labels and selection only.",
+      "html": "<div class=\"ds-demo\"><nav class=\"ds-tabs\" aria-label=\"Main\"><button aria-current=\"page\">Practice</button><button>Library</button><button>Progress</button></nav></div>",
+      "css": ".ds-demo{color-scheme:light dark;color:CanvasText;font-family:system-ui;padding:16px;background:Canvas;--accent:rgb(62% 23% 12%);--on-accent:white}@media(prefers-color-scheme:dark){.ds-demo{--accent:rgb(100% 62% 40%);--on-accent:black}}.ds-demo button,.ds-demo input{font:inherit}.ds-demo button{cursor:pointer}.ds-demo button:hover{filter:brightness(.94)}.ds-demo button:active{filter:brightness(.88)}.ds-demo button:focus-visible,.ds-demo input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.ds-tabs{display:flex;gap:6pt}.ds-tabs button{flex:1;border:0;background:transparent;color:GrayText;min-height:44pt}.ds-tabs [aria-current]{color:var(--accent)}"
+    },
+    {
+      "name": "Library search",
+      "kind": "input",
+      "description": "Browser approximation only. The app uses SwiftUI searchable; the browser field is an illustrative stand-in.",
+      "html": "<div class=\"ds-demo\"><label class=\"ds-search-label\">Library search<input class=\"ds-search\" type=\"search\" placeholder=\"Find a verse or word\"></label></div>",
+      "css": ".ds-demo{color-scheme:light dark;color:CanvasText;font-family:system-ui;padding:16px;background:Canvas;--accent:rgb(62% 23% 12%);--on-accent:white}@media(prefers-color-scheme:dark){.ds-demo{--accent:rgb(100% 62% 40%);--on-accent:black}}.ds-demo button,.ds-demo input{font:inherit}.ds-demo button{cursor:pointer}.ds-demo button:hover{filter:brightness(.94)}.ds-demo button:active{filter:brightness(.88)}.ds-demo button:focus-visible,.ds-demo input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.ds-search-label{display:grid;gap:8pt}.ds-search{width:100%;min-height:44pt;border:1px solid GrayText;border-radius:8px;background:Field;color:FieldText;padding:8pt}"
+    },
+    {
+      "name": "Library passage row",
+      "kind": "button",
+      "description": "Browser approximation only. Native list row with title, preview, and review status; iOS owns list chrome.",
+      "html": "<div class=\"ds-demo\"><button class=\"ds-row\"><strong>Verse 1</strong><span>Jai Hanuman gyaan gun saagar</span><small>Ready to review</small></button></div>",
+      "css": ".ds-demo{color-scheme:light dark;color:CanvasText;font-family:system-ui;padding:16px;background:Canvas;--accent:rgb(62% 23% 12%);--on-accent:white}@media(prefers-color-scheme:dark){.ds-demo{--accent:rgb(100% 62% 40%);--on-accent:black}}.ds-demo button,.ds-demo input{font:inherit}.ds-demo button{cursor:pointer}.ds-demo button:hover{filter:brightness(.94)}.ds-demo button:active{filter:brightness(.88)}.ds-demo button:focus-visible,.ds-demo input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.ds-row{display:grid;gap:6pt;text-align:left;width:100%;min-height:44pt;padding:6pt 0;border:0;background:transparent;color:CanvasText}.ds-row span{color:GrayText}.ds-row small{color:var(--accent)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Apple Human Interface Guidelines",
+    "overview": "The user pinned Apple's native interface conventions as the design direction. The implemented system uses SwiftUI navigation, controls, semantic colors, and text styles. Prayer text has a serif voice; the surrounding interface stays familiar and quiet so reading, listening, and recall remain the focus.\n\nThis document describes `ios/Chalisa` only. The existing web `dist` is a separate interface, not the source of native layout rules. Values are extracted from `ChalisaApp.swift`, `PracticeView.swift`, `LibraryView.swift`, and `Assets.xcassets/AccentColor.colorset/Contents.json`. This is an implementation record, not a claim of completed HIG or accessibility certification.",
+    "keyCharacteristics": [
+      "System Practice, Library, and Progress tabs with independent navigation stacks.",
+      "Semantic grouped surfaces, adaptive light/dark tint, and Dynamic Type.",
+      "Serif prayer text with clear listening and recall controls.",
+      "Bundled text and synthetic audio for offline practice."
+    ],
+    "rules": [
+      {
+        "name": "The Semantic Surface Rule",
+        "body": "Preserve native semantic background and text roles instead of substituting fixed light-mode colors.",
+        "section": "colors"
+      },
+      {
+        "name": "The Native Type Rule",
+        "body": "Keep semantic text styles and their Dynamic Type behavior; do not replace them with fixed pixel sizes to preserve a screenshot.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do preserve the user's Apple HIG direction and native tab, navigation, list, search, and sheet patterns.",
+      "Do use semantic text styles, adaptive background roles, and the appearance-aware accent asset.",
+      "Do preserve the accessibility-size layout and minimum 44pt custom interaction targets.",
+      "Do keep prayer text serif and allow it to grow and wrap.",
+      "Do keep text and audio available offline and retain the existing artwork's AI provenance."
+    ],
+    "donts": [
+      "Don't import the separate web interface's CSS, layouts, or fixed typography into the iPhone app.",
+      "Don't replace native controls with decorative imitations or introduce an unrequested visual direction.",
+      "Don't hard-code light-mode surface colors or shrink text to preserve a compact composition.",
+      "Don't present the illustration as newly authored or the synthetic audio as a traditional recitation.",
+      "Don't treat browser component previews as native rendering or verification evidence."
+    ]
+  }
+}
