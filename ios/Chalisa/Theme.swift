@@ -1,23 +1,5 @@
 import SwiftUI
 
-extension Color {
-    /// The deep navy behind the Hanuman artwork.
-    static let night = Color(red: 0.055, green: 0.090, blue: 0.170)
-    static let saffron = Color(red: 0.96, green: 0.52, blue: 0.16)
-    static let marigold = Color(red: 1.0, green: 0.76, blue: 0.30)
-    /// Deep enough for white text in both appearances.
-    static let ember = Color(red: 0.72, green: 0.22, blue: 0.07)
-}
-
-extension ShapeStyle where Self == LinearGradient {
-    static var saffronGlow: LinearGradient {
-        LinearGradient(colors: [.marigold, .saffron, Color("AccentColor")], startPoint: .topLeading, endPoint: .bottomTrailing)
-    }
-    static var emberGlow: LinearGradient {
-        LinearGradient(colors: [Color(red: 0.90, green: 0.40, blue: 0.10), .ember], startPoint: .leading, endPoint: .trailing)
-    }
-}
-
 /// Artwork on navy, with the day's streak and overall progress.
 struct HeroCard: View {
     let streak: Int
@@ -116,9 +98,7 @@ struct MasteryGrid: View {
     @EnvironmentObject private var store: LearningStore
     let practise: () -> Void
 
-    static func shortName(_ id: Int) -> String {
-        id < 2 ? "D\(id + 1)" : id == 42 ? "D3" : "\(id - 1)"
-    }
+    static func shortName(_ id: Int) -> String { Passage.shortName(id) }
 
     var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 6), count: 7), spacing: 6) {

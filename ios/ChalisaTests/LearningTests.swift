@@ -126,4 +126,26 @@ final class LearningTests: XCTestCase {
         store.reset()
         XCTAssertEqual(LearningStore(defaults: defaults).streak, 0)
     }
+
+    func testWidgetVerseOfTheDayWalksThroughAllPassagesInOrder() {
+        let newYear = calendar.date(from: DateComponents(year: 2026, month: 1, day: 1, hour: 23))!
+        XCTAssertEqual(DailyPassage.id(on: newYear, count: 43, calendar: calendar), 0)
+        let ids = (0..<44).map { DailyPassage.id(on: calendar.date(byAdding: .day, value: $0, to: newYear)!, count: 43, calendar: calendar) }
+        XCTAssertEqual(Array(ids.prefix(43)), Array(0..<43))
+        XCTAssertEqual(ids[43], 0)
+        let before = calendar.date(byAdding: .day, value: -1, to: newYear)!
+        XCTAssertEqual(DailyPassage.id(on: before, count: 43, calendar: calendar), 42)
+        // Same passage all day, across a daylight-saving change.
+        XCTAssertEqual(DailyPassage.id(on: date(3, 8), count: 43, calendar: calendar),
+                       DailyPassage.id(on: calendar.date(from: DateComponents(year: 2026, month: 3, day: 8, hour: 1))!, count: 43, calendar: calendar))
+    }
+
+    func testWidgetLinkOpensItsPassage() {
+        XCTAssertEqual(DeepLink.passageID(from: DeepLink.url(passage: 17)), 17)
+        XCTAssertNil(DeepLink.passageID(from: URL(string: "https://example.com/passage/3")!))
+        XCTAssertNil(DeepLink.passageID(from: URL(string: "chalisa://settings/3")!))
+        XCTAssertEqual(Passage.shortName(0), "D1")
+        XCTAssertEqual(Passage.shortName(2), "1")
+        XCTAssertEqual(Passage.shortName(42), "D3")
+    }
 }

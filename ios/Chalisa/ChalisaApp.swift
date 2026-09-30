@@ -38,7 +38,7 @@ struct ChalisaApp: App {
     }
 }
 
-enum AppTab: Hashable { case practice, library, progress }
+enum AppTab: Hashable { case practice, read, library, progress }
 
 struct RootView: View {
     @EnvironmentObject private var store: LearningStore
@@ -53,6 +53,8 @@ struct RootView: View {
             TabView(selection: $tab) {
                 NavigationStack { PracticeView() }
                     .tabItem { Label("Practice", systemImage: "sparkles") }.tag(AppTab.practice)
+                NavigationStack { ReadView { tab = .practice } }
+                    .tabItem { Label("Read", systemImage: "book") }.tag(AppTab.read)
                 NavigationStack { LibraryView { tab = .practice } }
                     .tabItem { Label("Library", systemImage: "books.vertical") }.tag(AppTab.library)
                 NavigationStack { ProgressViewScreen { tab = .practice } }
@@ -62,6 +64,12 @@ struct RootView: View {
             .onChange(of: reminders.openedAt) { _, _ in
                 // Opening a reminder goes straight to the first passage waiting for review.
                 if let first = store.dueIDs.first { store.select(first) }
+                tab = .practice
+            }
+            .onOpenURL { url in
+                // Tapping the widget opens the passage it is showing.
+                guard let id = DeepLink.passageID(from: url) else { return }
+                store.select(id)
                 tab = .practice
             }
             .onChange(of: store.state.current) { _, _ in audio.stop() }

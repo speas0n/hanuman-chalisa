@@ -6,10 +6,12 @@ A native iPhone app and a mobile-friendly website to help you remember the Hanum
 
 Open `ios/Chalisa.xcodeproj` in Xcode. Choose the **Chalisa** scheme and an iPhone simulator, then Run. Requires iOS 17 or later; no third-party Swift packages are needed.
 
-The SwiftUI app uses native Practice, Library, and Progress tabs, system controls, light/dark appearance, Dynamic Type, and VoiceOver labels. All text and 86 pronunciation clips are bundled, so practice works offline. Saved progress stays on the phone and is separate from the website. Audio stops when the app leaves the foreground.
+The SwiftUI app uses native Practice, Read, Library, and Progress tabs, system controls, light/dark appearance, Dynamic Type, and VoiceOver labels. All text and 86 pronunciation clips are bundled, so practice works offline. Saved progress stays on the phone and is separate from the website. Audio stops when the app leaves the foreground.
 
 - **Daily reminder:** turn it on in the Progress tab and choose a time (default 7:00 PM). Each reminder says how many passages are ready to review that day, or which verse to continue. It skips the day once you have practised. Tapping it opens the first passage due for review. The app schedules the next 30 days and refreshes them whenever it opens.
+- **Read the whole Chalisa:** the Read tab shows all 43 passages top to bottom: the opening dohas, the 40 verses and the closing doha. The text is large and serif, and it follows your text-size setting. Long-press a passage to practise it. A Listen card at the top opens "Hanuman Chalisa (Lofi)" by Rasraj Ji Maharaj in YouTube Music. The app only links to it; the recording is not included in the app and needs an internet connection.
 - **Streak and progress:** the Practice screen shows your day streak and recall count. The Progress tab has a ring, stats, and a map of all 43 passages. Brighter tiles have been remembered longer, and outlined tiles are due; tap one to practise it.
+- **Widget — Verse of the Day:** long-press the Home Screen → Edit → Add Widget → Chalisa. It comes in small, medium and large sizes on the Home Screen, and in rectangular, circular and inline versions on the Lock Screen. It shows one passage per day in order, cycling through all 43 passages. The large size has a track of all 43, and tapping any size opens that passage in the app. The widget uses only bundled text, not your saved progress.
 - **Design:** navy-and-saffron artwork card, serif titles, a highlight on the line being played, and a celebration with haptics when you remember a passage. Works in light and dark mode.
 
 To install on your own iPhone:
@@ -33,7 +35,7 @@ xcodebuild -project ios/Chalisa.xcodeproj -scheme Chalisa \
   -derivedDataPath ios/build-device build CODE_SIGNING_ALLOWED=NO
 ```
 
-The shared scheme runs tests without attaching a debugger. Choose an installed simulator name on other Macs. Unit tests cover offline clips, scheduling, repeated recalls, daylight-saving boundaries, saved-state validation, persistence, and reset. Unit tests also cover streaks and the daily reminder plan. UI tests cover playback, hints, recall, Library search, Settings, and restarting the app. An unsigned build verifies compilation; it cannot be installed until Xcode signs it for your phone.
+The shared scheme runs tests without attaching a debugger. Choose an installed simulator name on other Macs. Unit tests cover offline clips, scheduling, repeated recalls, daylight-saving boundaries, saved-state validation, persistence, and reset. Unit tests also cover streaks and the daily reminder plan. UI tests cover playback, hints, recall, Library search, the Read tab, Settings, and restarting the app. An unsigned build verifies compilation; it cannot be installed until Xcode signs it for your phone.
 
 The Xcode project is checked in. `python3 ios/generate_project.py` regenerates it if Swift files are added or targets change. Set `DEVELOPMENT_TEAM` in the environment to keep your signing team, or select it again in Xcode afterwards. Audio is referenced directly from `dist/audio`; keep that folder alongside `ios`. Roman text is bundled in `ios/Chalisa/Resources/verses.json` and must stay aligned with `dist/verses.js`.
 

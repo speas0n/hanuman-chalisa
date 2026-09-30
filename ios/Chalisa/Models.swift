@@ -16,6 +16,11 @@ struct Passage: Codable, Identifiable {
         }
         return passages
     }
+
+    /// Compact label: D1 and D2 for the opening dohas, 1–40 for the verses, D3 for the closing doha.
+    static func shortName(_ id: Int) -> String {
+        id < 2 ? "D\(id + 1)" : id == 42 ? "D3" : "\(id - 1)"
+    }
 }
 
 struct ReviewRecord: Codable {

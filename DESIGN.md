@@ -69,7 +69,7 @@ The user pinned Apple's native interface conventions as the design direction. Th
 This document describes `ios/Chalisa` only. The existing web `dist` is a separate interface, not the source of native layout rules. Values are extracted from `ChalisaApp.swift`, `PracticeView.swift`, `LibraryView.swift`, and `Assets.xcassets/AccentColor.colorset/Contents.json`. This is an implementation record, not a claim of completed HIG or accessibility certification.
 
 **Key Characteristics:**
-- System Practice, Library, and Progress tabs with independent navigation stacks.
+- System Practice, Read, Library, and Progress tabs with independent navigation stacks. Read is a calm, continuous page: an accent passage label (D1, 1–40, D3) above two serif `.title3` lines in grouped list sections.
 - Semantic grouped surfaces, adaptive light/dark tint, and Dynamic Type.
 - Serif prayer text with clear listening and recall controls.
 - Bundled text and synthetic audio for offline practice.

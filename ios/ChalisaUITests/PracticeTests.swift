@@ -58,6 +58,16 @@ final class PracticeTests: XCTestCase {
         screenshot("verse-light")
     }
 
+    func testReadPageShowsEveryPassage() {
+        app.tabBars.buttons["Read"].tap()
+        XCTAssertTrue(app.descendants(matching: .any)["read2"].waitForExistence(timeout: 5))
+        screenshot("read-top")
+        let last = app.descendants(matching: .any)["read42"]
+        for _ in 0..<40 where !last.exists { app.swipeUp() }
+        XCTAssertTrue(last.exists)
+        screenshot("read-light")
+    }
+
     func testLibrarySearchAndSettings() {
         app.tabBars.buttons["Library"].tap()
         let search = app.searchFields.firstMatch
